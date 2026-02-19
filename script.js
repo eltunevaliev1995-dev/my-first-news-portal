@@ -15,5 +15,5 @@ alert("Thank you for your interest! (Marağınız üçün təşəkkürlər!)");
 
 
 
-
+// Test commit for Eltun.
 console.log("Script is loaded successfully! (Skript uğurla yükləndi!)");
