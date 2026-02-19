@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Age Journey Tracker</title>
+  <style>
+    body {
+      background: #222;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 50px;
+      transition: background 0.5s ease;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    #ageSpan {
+      font-size: 2em;
+      font-weight: bold;
+      margin: 10px;
+      display: inline-block;
+    }
+    
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 1em;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    #increaseBtn {
+      background: crimson;
+      color: white;
+    }
+    #increaseBtn:hover {
+      background: darkred;
+    }
+    #decreaseBtn {
+      background: seagreen;
+      color: white;
+    }
+    #decreaseBtn:hover {
+      background: darkgreen;
+    }
+    #message {
+      margin-top: 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    /* Progress bar */
+    #progressContainer {
+      width: 60%;
+      margin: 30px auto;
+      background: #444;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    #progressBar {
+      height: 25px;
+      width: 30%; /* Başlanğıc yaş 30 */
+      background: gold;
+      transition: width 0.5s ease, background 0.5s ease;
+    }
+    /* İkon */
+    #icon {
+      font-size: 3em;
+      margin-top: 20px;
+      transition: transform 0.5s ease;
+    }
+  </style>
+</head>
+<body>
+  <h1>Age Journey Tracker</h1>
+  <div>
+    <button id="decreaseBtn">- Decrease</button>
+    <span id="ageSpan">30</span>
+    <button id="increaseBtn">+ Increase</button>
+  </div>
+  <p id="message">You are an adult</p>
+
+  <!-- Progress bar -->
+  <div id="progressContainer">
+    <div id="progressBar"></div>
+  </div>
+
+  <!-- İkon -->
+  <div id="icon">👨</div>
+
+  <script>
+    const increaseBtn = document.getElementById('increaseBtn');
+    const decreaseBtn = document.getElementById('decreaseBtn');
+    const ageDisplay = document.getElementById('ageSpan');
+    const messageText = document.getElementById('message');
+    const progressBar = document.getElementById('progressBar');
+    const icon = document.getElementById('icon');
+
+    let ageCount = 30;
+
+    function updateMessage() {
+      if (ageCount < 0) {
+        messageText.innerHTML = "Age cannot be negative!";
+        messageText.style.color = "red";
+        document.body.style.background = "black";
+        icon.innerHTML = "❌";
+      } else if (ageCount < 18) {
+        messageText.innerHTML = "You are a child";
+        messageText.style.color = "orange";
+        document.body.style.background = "darkblue";
+        progressBar.style.background = "orange";
+        icon.innerHTML = "🧒";
+      } else if (ageCount >= 60) {
+        messageText.innerHTML = "You are wise";
+        messageText.style.color = "gold";
+        document.body.style.background = "purple";
+        progressBar.style.background = "gold";
+        icon.innerHTML = "👴";
+      } else {
+        messageText.innerHTML = "You are an adult";
+        messageText.style.color = "white";
+        document.body.style.background = "darkred";
+        progressBar.style.background = "crimson";
+        icon.innerHTML = "👨";
+      }
+      ageDisplay.innerHTML = ageCount;
+      progressBar.style.width = (ageCount) + "%"; // yaşa uyğun progress bar
+      icon.style.transform = "scale(1.2)"; // animasiya effekti
+      setTimeout(() => icon.style.transform = "scale(1)", 300);
+    }
+
+    increaseBtn.addEventListener('click', () => {
+      if (ageCount < 100) {
+        ageCount++;
+        updateMessage();
+      } else {
+        messageText.innerHTML = "Maximum age limit reached!";
+        messageText.style.color = "red";
+        document.body.style.background = "black";
+        icon.innerHTML = "⏳";
+      }
+    });
+
+    decreaseBtn.addEventListener('click', () => {
+      if (ageCount > 0) {
+        ageCount--;
+        updateMessage();
+      } else {
+        messageText.innerHTML = "Age cannot be negative!";
+        messageText.style.color = "red";
+        document.body.style.background = "black";
+        icon.innerHTML = "❌";
+      }
+    });
+
+    // İlk açılışda mesajı göstərmək üçün
+    updateMessage();
+  </script>
+</body>
+</html>

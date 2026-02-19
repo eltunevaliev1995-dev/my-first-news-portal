@@ -1,0 +1,106 @@
+/* Box-sizing reset - a pro engineer's best friend */
+* {
+    box-sizing: border-box;
+}
+
+
+/* Background color for the whole page */
+body {
+  
+   background-color: #f4f4f4;
+   font-family: Arial, sans-serif;
+   margin: 0;
+   padding: 20px;
+
+}
+
+/* Styling the header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* Removing bullet points from the list */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+/* Making list items stay side-by-side */
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Link color */
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/* Let's style the article to look like a real card */
+article {
+
+    background-color: #fff;
+    padding: 20px; /* Internal spacing */
+    margin-bottom: 20px; /* External spacing from the next element */
+    border: 1px solid #ddd; /* A subtle border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Adding some depth */
+
+}
+
+/* Aside styling */
+aside {
+
+  background-color: #e2e2e2;
+  padding: 15px;
+  border-left: 5px solid #333;
+  margin-top: 10px;
+    
+}
+
+
+/* Footer spacing */
+footer {
+   
+     margin-top: 50px;
+     text-align: center;
+     font-size: 0.8em;
+     color: #777;
+}
+
+/* We target the parent to control the children */
+main{
+
+    display: flex; /* Magic starts here */
+    gap: 20px; /* Space between article and aside */ 
+    align-items: flex-start; /* Align items to the top */
+}
+
+
+/* Give more space to the article, and less to the aside */
+article {
+
+    flex: 3; /* Takes 3 parts of the space */
+    margin-bottom: 0; /* Removing old margin because we have 'gap' now */
+}
+
+
+aside {
+
+    flex: 1; /* Takes 1 part of the space */
+    margin-top: 0; /* Removing old margin because we have 'gap' now */
+}
+
+/* Responsive fix: If the screen is small (mobile), put them on top of each other */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Stack them vertically */
+    }
+}
