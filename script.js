@@ -1,19 +1,24 @@
-// 1. Select the element (Elementi seçirik)
-// We look for all 'a' tags, but let's just make an alert for now
-const contactLink = document.querySelector('nav ul li:last-child a') ;// This will select the first 'a' tag it finds.
+const name = "Elton";
 
-// 2. Add an event listener (Hadisəni izləyirik)
-contactLink.addEventListener('click' , function(event) {
-   
-    // Prevent the default link behavior (Linkin normal hərəkətini dayandırırıq)
-    event.preventDefault();
+let age = 31;
 
-// Show a message (Mesaj göstəririk)
-alert("Thank you for your interest! (Marağınız üçün təşəkkürlər!)");
+let job = "Junior Developer";
 
-});
+console.log(name);
+console.log(age);
 
 
+let isLearning = true;   // Boolean
+console.log(isLearning);
+let salary = null;       // Hələ ki boşdur (Null)
+console.log(salary);
+let lessonName = "JS 101"; // String
+console.log(lessonName);
 
-// Test commit for Eltun.
-console.log("Script is loaded successfully! (Skript uğurla yükləndi!)");
+
+let a = 10;
+let b = 5;
+let sum = a + b; // 15
+console.log("Cəm:", sum);
+
+
