@@ -1,24 +1,30 @@
-const name = "Elton";
-
-let age = 31;
-
-let job = "Junior Developer";
-
-console.log(name);
-console.log(age);
+const checkButtonPro = document.getElementById("checkButton");
 
 
-let isLearning = true;   // Boolean
-console.log(isLearning);
-let salary = null;       // Hələ ki boşdur (Null)
-console.log(salary);
-let lessonName = "JS 101"; // String
-console.log(lessonName);
+checkButtonPro.addEventListener("click", function () {
+   
+    const inputName = document.getElementById("userName").value;
+
+    let inputAge = Number(document.getElementById("userAge").value);
+
+    const displayMessage = document.getElementById("displayMessage");
 
 
-let a = 10;
-let b = 5;
-let sum = a + b; // 15
-console.log("Cəm:", sum);
+    if(inputName === "") {
+
+        displayMessage.innerHTML = "Fill in the Fields";
+        displayMessage.style.color = "red";
+
+    }  else if (inputAge >= 18) {
+
+         displayMessage.innerHTML = `Welcome, Mr. ${inputName}`;
+         displayMessage.style.color = "deepskyblue";
+
+    } else {
+
+         displayMessage.innerHTML = `Your age is invalid, Mr. ${inputName}`;
+         displayMessage.style.color = "darkseagreen";
+    }
 
 
+});
